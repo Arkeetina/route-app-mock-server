@@ -4,16 +4,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-let app = express(); 
+const app = express(); 
 const port = process.env.PORT;
 const API_KEY = process.env.API_KEY;
+const TOKEN = process.env.TOKEN;
 
 app.use(bodyParser.json());
 
 app.use(cors()); 
 
 app.post(`/gettoken/${API_KEY}`, (req, res) => {
-  res.status(200).send({ 'token' : '3456789987654678llkk' });
+  res.status(200).send({ 'token' : TOKEN });
 });
 
 app.get(`/getroute/:token`, (req, res) => {
